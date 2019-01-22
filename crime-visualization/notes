@@ -1,0 +1,23 @@
+1) Initial graph upon loading should be how seattle is ranked on average compared to state average
+
+2) Display bar graph in percentage with data labels - How much safer is Seattle compared to rest of Washington?
+    - X Axis: years [2012, 2013 etc.]
+    - Y Axis: percentages "10%"
+    - Seattle count / (State count + Seattle count) = Percentage
+    - Percentage is how likely incident will happen in Seattle compared to rest of WA
+
+3) Mobile view not ideal with current row-chart display, possible column chart to allow extension of y-axis for proper mobile viewing?
+
+
+4) Navigation links to navigate to separate components containing a apexchart for specific crime index
+    - Why? Crime index contains 5 years of data and displaying all 5 years of data for each crime index in a single graph is too much and visibly not pleasing
+    - Separation of crime index to display increase and decline of occurrences through the span of 5 years of data 
+    - Approach.....Pass city and state data as props to child components
+
+5) Rename National.vue to something else not that we're not comparing to national averages
+    - Currently it's city of Seattle compared to its home state, Washington
+    - Possible names: City.vue? CityRisk.vue?
+
+6) Easy way to pass data is to use a custom service, DataStorage crime-index components can call to retrieve data instead of making more API calls like CityRisk.vue
+
+7) % Crime Occurring for all crime indexes - city / (city + state) for each year

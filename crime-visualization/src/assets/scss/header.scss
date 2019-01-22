@@ -1,0 +1,12 @@
+.header__nav {
+    background-color: $background;
+    .header__nav-brand {
+        .header__nav-brand-logo {
+            height: 72px;
+        }
+    }
+}
+
+.header__list-item:hover {
+    background-color: #FEBA45;
+}

@@ -1,0 +1,12 @@
+.footer__footer {
+    background-color: $background;
+}
+
+.footer__list {
+    display: flex;
+    list-style-type: none;
+    margin-bottom: 0px;
+    .footer__list-item {
+        padding: 16px 16px 0px 16px;
+    }
+}
