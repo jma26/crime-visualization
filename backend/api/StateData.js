@@ -11,7 +11,7 @@ exports.default = {
     }).then(response => {
         let arrayIncidentCount = []
         let crimeIndex = {
-            arson: arrayIncidentCount
+            burglary: arrayIncidentCount
         }
         response.data.results.map(item => {
             if (item.data_year >= 2012) {
