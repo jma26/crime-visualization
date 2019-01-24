@@ -1,7 +1,7 @@
 <template>
   <div id="header">
     <nav class="navbar navbar-expand-lg navbar-dark header__nav">
-      <router-link class="header__nav-brand" tag="a" to="/dashboard/city-crimes">
+      <router-link class="header__nav-brand" tag="a" to="/crime-indexes/city-crimes">
         <img class="header__nav-brand-logo" src="../assets/seacrime-logo.png" alt="SeaCrime" />
       </router-link>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
