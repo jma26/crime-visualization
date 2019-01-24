@@ -16,7 +16,7 @@ exports.default = {
         response.data.results.map(item => {
             arrayIncidentCount.push(item.incident_count);
         })
-        return crimeIndex
+        return Promise.resolve(crimeIndex);
     }).catch(error => {
         return 'Something went wrong retrieving burglary data';
     })
@@ -38,9 +38,9 @@ exports.default = {
         response.data.results.map(item => {
             arrayIncidentCount.push(item.incident_count);
         })
-        return crimeIndex;
+        return Promise.resolve(crimeIndex);
     }).catch(error => {
-        return 'Something went wrong retrieving arson city data';
+        return Promise.reject('Something went wrong retrieving arson city data');
     })
   },
 
@@ -60,9 +60,9 @@ exports.default = {
         response.data.results.map(item => {
             arrayIncidentCount.push(item.incident_count);
         })
-        return crimeIndex;
+        return Promise.resolve(crimeIndex);
     }).catch(error => {
-        return 'Something went wrong retrieving motor vehicle theft city data';
+        return Promise.reject('Something went wrong retrieving motor vehicle theft city data');
     })
   },
 
@@ -82,9 +82,9 @@ exports.default = {
         response.data.results.map(item => {
             arrayIncidentCount.push(item.incident_count);
         })
-        return crimeIndex;
+        return Promise.resolve(crimeIndex);
     }).catch(error => {
-        return 'Something went wrong retrieving larceny city data';
+        return Promise.reject('Something went wrong retrieving larceny city data');
     })
   },
 
@@ -104,9 +104,9 @@ exports.default = {
         response.data.results.map(item => {
             arrayIncidentCount.push(item.incident_count);
         })
-        return crimeIndex;
+        return Promise.resolve(crimeIndex);
     }).catch(error => {
-        return 'Something went wrong retrieving homicide city data';
+        return Promise.reject('Something went wrong retrieving homicide city data');
     })
   },
 
@@ -126,9 +126,9 @@ exports.default = {
         response.data.results.map(item => {
             arrayIncidentCount.push(item.incident_count);
         })
-        return crimeIndex;
+        return Promise.resolve(crimeIndex);
     }).catch(error => {
-        return 'Something went wrong retrieving robbery city data';
+        return Promise.reject('Something went wrong retrieving robbery city data');
     })
   },
 
@@ -148,9 +148,9 @@ exports.default = {
         response.data.results.map(item => {
             arrayIncidentCount.push(item.incident_count);
         })
-        return crimeIndex;
+        return Promise.resolve(crimeIndex);
     }).catch(error => {
-        return 'Something went wrong retrieving aggravated assault city data';
+        return Promise.reject('Something went wrong retrieving aggravated assault city data');
     })
   },
 
@@ -170,9 +170,9 @@ exports.default = {
         response.data.results.map(item => {
             arrayIncidentCount.push(item.incident_count);
         })
-        return crimeIndex;
+        return Promise.resolve(crimeIndex);
     }).catch(error => {
-        return 'Something went wrong retrieving rape city data';
+        return Promise.reject('Something went wrong retrieving rape city data');
     })
   }
 }

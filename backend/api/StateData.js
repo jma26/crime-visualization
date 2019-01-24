@@ -18,9 +18,9 @@ exports.default = {
             arrayIncidentCount.push(item.incident_count);
             }
         })
-        return crimeIndex;
+        return Promise.resolve(crimeIndex);
     }).catch(error => {
-        return 'Something went wrong retrieving burglary state data'
+        return Promise.reject('Something went wrong retrieving burglary state data');
     })
   },
   
@@ -42,9 +42,9 @@ exports.default = {
             arrayIncidentCount.push(item.incident_count);
             }
         })
-        return crimeIndex;
+        return Promise.resolve(crimeIndex);
     }).catch(error => {
-        return 'Something went wrong retrieving arson state data'
+        return Promise.reject('Something went wrong retrieving arson state data');
     })
   },
 
@@ -66,9 +66,9 @@ exports.default = {
             arrayIncidentCount.push(item.incident_count);
             }
         })
-      return crimeIndex;
+      return Promise.resolve(crimeIndex);
     }).catch(error => {
-        return 'Something went wrong retrieving motor vehicle theft state data';
+        return Promise.reject('Something went wrong retrieving motor vehicle theft state data');
     })
   },
 
@@ -90,9 +90,9 @@ exports.default = {
             arrayIncidentCount.push(item.incident_count);
             }
         })
-      return crimeIndex;
+      return Promise.resolve(crimeIndex);
     }).catch(error => {
-        return 'Something went wrong retrieving larceny state data';
+        return Promise.reject('Something went wrong retrieving larceny state data');
     })
   },
 
@@ -114,9 +114,9 @@ exports.default = {
             arrayIncidentCount.push(item.incident_count);
             }
         })
-        return crimeIndex;
+        return Promise.resolve(crimeIndex);
     }).catch(error => {
-        return 'Something went wrong retrieving homicide state data';
+        return Promise.reject('Something went wrong retrieving homicide state data');
     })
   },
 
@@ -138,9 +138,9 @@ exports.default = {
             arrayIncidentCount.push(item.incident_count);
             }
         })
-        return crimeIndex;
+        return Promise.resolve(crimeIndex);
     }).catch(error => {
-        return 'Something went wrong retrieving robbery state data';
+        return Promise.reject('Something went wrong retrieving robbery state data');
     })
   },
 
@@ -162,9 +162,9 @@ exports.default = {
             arrayIncidentCount.push(item.incident_count);
             }
         })
-        return crimeIndex;
+        return Promise.resolve(crimeIndex);
     }).catch(error => {
-        return 'Something went wrong retrieving aggravated assault state data';
+        return Promise.reject('Something went wrong retrieving aggravated assault state data');
     })
   },
 
@@ -186,9 +186,9 @@ exports.default = {
           arrayIncidentCount.push(item.incident_count);
         }
       })
-      return crimeIndex;
+      return Promise.resolve(crimeIndex);
     }).catch(error => {
-        return 'Something went wrong retrieving rape state data';
+        return Promise.reject('Something went wrong retrieving rape state data');
     })
   }
 }
