@@ -61,82 +61,26 @@ export default {
 
       // Initialize
       var seattleIncidentPercentages = {};
-
-      // City total
-      var total_city_burglary_count = 0
-      var total_city_arson_count = 0;
-      var total_city_rape_count = 0;
-      var total_city_robbery_count = 0;
-      var total_city_aggravated_assault_count = 0;
-      var total_city_homicide_count = 0;
-      var total_city_larceny_count = 0;
-      var total_city_motor_vehicle_theft_count = 0;
-      
-      // City + State total
-      var total_burglary_count = 0
-      var total_arson_count = 0;
-      var total_rape_count = 0;
-      var total_robbery_count = 0;
-      var total_aggravated_assault_count = 0;
-      var total_homicide_count = 0;
-      var total_larceny_count = 0;
-      var total_motor_vehicle_theft_count = 0;
-      var total_burglary_count = 0;
+      const city_crime_indexes = {};
+      const state_crime_indexes = {};
 
       this.city = this.crimeData.city;
       this.state = this.crimeData.state;
 
-      // Length of incidents of 6 years
-      // Loop to compute percentages for each crime index
-      for (let i = 0; i < 6; i++) {
-        // Burglary
-        total_city_burglary_count += this.city.burglary_count[i];
-        total_burglary_count += (this.city.burglary_count[i] + this.state.burglary_count[i]);
-
-        // Arson
-        total_city_arson_count += this.city.arson_count[i];
-        total_arson_count += (this.city.arson_count[i] + this.state.arson_count[i]);
-
-        // Rape
-        total_city_rape_count += this.city.rape_count[i];
-        total_rape_count += (this.city.rape_count[i] + this.state.rape_count[i]);
-
-        // Robbery
-        total_city_robbery_count += this.city.robbery_count[i];
-        total_robbery_count += (this.city.robbery_count[i] + this.state.robbery_count[i]);
-
-        // Aggravated Assault
-        total_city_aggravated_assault_count += this.city.aggravated_assault_count[i];
-        total_aggravated_assault_count += (this.city.aggravated_assault_count[i] + this.state.aggravated_assault_count[i]);
-        
-        // Homicide
-        total_city_homicide_count += this.city.homicide_count[i];
-        total_homicide_count += (this.city.homicide_count[i] + this.state.homicide_count[i]);
-
-        // Larceny
-        total_city_larceny_count += this.city.larceny_count[i];
-        total_larceny_count += (this.city.larceny_count[i] + this.state.larceny_count[i]);
-
-        // Motor Vehicle Theft
-        total_city_motor_vehicle_theft_count += this.city.motor_vehicle_theft_count[i];
-        total_motor_vehicle_theft_count += (this.city.motor_vehicle_theft_count[i] + this.state.motor_vehicle_theft_count[i]);
+      // Sum up total for each crime index in city
+      for (let crimeIndex in this.city) {
+        city_crime_indexes[crimeIndex] = this.city[crimeIndex].reduce((a, b) => a + b, 0);
       }
 
-      seattleIncidentPercentages.burglary = Math.floor((total_city_burglary_count / total_burglary_count) * 100);
+      // Sum up total for each crime index in state
+      for (let crimeIndex in this.state) {
+        state_crime_indexes[crimeIndex] = this.state[crimeIndex].reduce((a, b) => a + b, 0);
+      }
 
-      seattleIncidentPercentages.arson = Math.floor((total_city_arson_count / total_arson_count) * 100);
-
-      seattleIncidentPercentages.motor_vehicle_theft = Math.floor((total_city_motor_vehicle_theft_count / total_motor_vehicle_theft_count) * 100);
-
-      seattleIncidentPercentages.larceny = Math.floor((total_city_larceny_count / total_larceny_count) * 100);
-
-      seattleIncidentPercentages.homicide = Math.floor((total_city_homicide_count / total_homicide_count) * 100);
-
-      seattleIncidentPercentages.robbery = Math.floor((total_city_robbery_count / total_robbery_count) * 100);
-
-      seattleIncidentPercentages.aggravated_assault = Math.floor((total_city_aggravated_assault_count / total_aggravated_assault_count) * 100);
-
-      seattleIncidentPercentages.rape = Math.floor((total_city_rape_count / total_rape_count) * 100); 
+      // Calculate likelihood of crime occurring, city / (city + state)
+      for (let crimeIndex in city_crime_indexes) {
+        seattleIncidentPercentages[crimeIndex] = Math.round(city_crime_indexes[crimeIndex] / (city_crime_indexes[crimeIndex] +  state_crime_indexes[crimeIndex]) * 100);
+      }
 
       console.log(seattleIncidentPercentages);
 
@@ -153,40 +97,6 @@ export default {
         ]
       }]
     },
-    checkProperties() {
-      Promise.all([
-        this.checkCityProperties(this.crimeData.city),
-        this.checkStateProperties(this.crimeData.state)
-      ]).then(values => {
-        console.log(values);
-        if (values[0] === true && values[1] === true) {
-          console.log('City and state datas are updated');
-          this.updateChart();
-        }
-      }).catch(error => {
-        console.log('City and state datas are null:', error);
-      })
-    },
-    checkCityProperties(city) {
-      return new Promise(function(resolve, reject) {
-        for (let key in city) {
-          if (city[key] === null) {
-            reject('City properties are null');
-          }
-        }
-        resolve(true);
-      })
-    },
-    checkStateProperties(state) {
-      return new Promise(function(resolve, reject) {
-        for (let key in state) {
-          if (state[key] === null) {
-            reject('State properties are null');
-          }
-        }
-        resolve(true);
-      })
-    }
   },
   watch: {
     crimeData: {
@@ -195,9 +105,6 @@ export default {
         this.updateChart();
       }
     }
-  },
-  created() {
-    this.checkProperties();
   }
 }
 </script>
