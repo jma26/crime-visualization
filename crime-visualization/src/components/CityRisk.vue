@@ -57,10 +57,9 @@ export default {
   },
   methods: {
     updateChart() {
-      console.log('Updating series.....');
 
       // Initialize
-      var seattleIncidentPercentages = {};
+      var percentages = {};
       const city_crime_indexes = {};
       const state_crime_indexes = {};
 
@@ -79,21 +78,19 @@ export default {
 
       // Calculate likelihood of crime occurring, city / (city + state)
       for (let crimeIndex in city_crime_indexes) {
-        seattleIncidentPercentages[crimeIndex] = Math.round(city_crime_indexes[crimeIndex] / (city_crime_indexes[crimeIndex] +  state_crime_indexes[crimeIndex]) * 100);
+        percentages[crimeIndex] = Math.round(city_crime_indexes[crimeIndex] / (city_crime_indexes[crimeIndex] +  state_crime_indexes[crimeIndex]) * 100);
       }
-
-      console.log(seattleIncidentPercentages);
 
       this.series = [{
         data: [
-          seattleIncidentPercentages.burglary, 
-          seattleIncidentPercentages.arson,
-          seattleIncidentPercentages.motor_vehicle_theft,
-          seattleIncidentPercentages.larceny,
-          seattleIncidentPercentages.homicide,
-          seattleIncidentPercentages.robbery,
-          seattleIncidentPercentages.aggravated_assault,
-          seattleIncidentPercentages.rape
+          percentages.burglary, 
+          percentages.arson,
+          percentages.motor_vehicle_theft,
+          percentages.larceny,
+          percentages.homicide,
+          percentages.robbery,
+          percentages.aggravated_assault,
+          percentages.rape
         ]
       }]
     },
@@ -105,6 +102,9 @@ export default {
         this.updateChart();
       }
     }
+  },
+  created() {
+    this.updateChart();
   }
 }
 </script>

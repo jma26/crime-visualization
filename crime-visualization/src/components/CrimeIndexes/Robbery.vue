@@ -32,7 +32,7 @@ props:['crimeData'],
         },
         yaxis: {
           title: {
-            text: '% Crime Occurring',
+            text: '% Likehood of Crime Occurring',
             style: {
               cssClass: 'robbery-yaxis-title'
             }
@@ -53,7 +53,6 @@ props:['crimeData'],
   },
   methods: {
     updateChart() {
-      console.log('Updating series...');
 
       // Initialize
       var percentages = {};
@@ -61,24 +60,21 @@ props:['crimeData'],
       this.city = this.crimeData.city;
       this.state = this.crimeData.state;
 
-      // Length of incidents of 6 years
-      // Loop to compute percentages for each crime index
-      for (let i = 0; i < 6; i++) {
-        percentages['year_', i] = Math.floor((this.city.robbery_count[i]) / (this.city.robbery_count[i] + this.state.robbery_count[i]));
+      // Loop to compute percentages for crime index
+      for (let i = 0; i < this.city.robbery.length; i++) {
+        percentages[i + 2012] = Math.floor(this.city.robbery[i] / (this.city.robbery[i] + this.state.robbery[i]) * 100);
       }
-      console.log(percentages);
 
       this.series = [{
         data: [
-          percentages.year_0,
-          percentages.year_1,
-          percentages.year_2,
-          percentages.year_3,
-          percentages.year_4,
-          percentages.year_5,
+          percentages[2012],
+          percentages[2013],
+          percentages[2014],
+          percentages[2015],
+          percentages[2016],
+          percentages[2017],
         ]
       }]
-
     }
   },
   created() {
