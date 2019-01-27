@@ -1,37 +1,33 @@
 #landingpage {
     background-color: $background;
-    // background: linear-gradient(#879DAE, #C4C4C2, #EAD1B3, #FEBA45);
     height: 100vh;
     width: 100vw;
 }
 
+.landingpage__image--logo {
+    height: 100px;
+}
+
 .landingpage__section {
-    display: flex;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .landingpage__headline {
-    text-transform: uppercase;
-    letter-spacing: 0.4rem;
+    letter-spacing: 0.1rem;
 }
 
 .landingpage__content {
     color: #FFF;
-    font-size: 21px;
-    font-weight: bold;
 }
 
 .landingpage__button--green {
-    margin-top: 24px;
     padding: 8px;
     border: none;
     background-color: $background;
     border: 2px solid #FFF;
     border-radius: 3%;
     color: #FFF;
-}
-
-.landingpage__image--seattle {
-    width: 25%;
 }
 
 // Default hide all --mobile > modifiers
@@ -54,13 +50,6 @@
     }
     .landingpage__content {
         padding: 0px 24px;
-    }
-    .landingpage__demo {
-        text-align: center;
-        padding-top: 16px;
-        img {
-            width: 80%;
-        }
     }
     .green-btn--mobile {
         margin-left: auto;
