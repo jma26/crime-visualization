@@ -11,6 +11,10 @@ $modulebackground: #d0cdc4;
 $dark: #333; 
 $background: (#01E3D8, #18A5DD, #2C5ED1, #6335BC);
 
+$phablet: 600px;
+$tablet: 800px;
+$laptop: 1024px;
+$desktop: 1120px;
 
 /*********************
 BREAKPOINTS
@@ -29,9 +33,29 @@ BREAKPOINTS
     @else if $point == phablet {
       @media (min-width: 37.5em)  { @content ; }
    }
-   @else if $point == mobileonly {
+   @else if $point == mobile {
       @media (max-width: 37.5em)  { @content ; }
  
    }
  }
  
+/*********************
+BREAKPOINTS BETWEEN
+*********************/
+@mixin phablet {
+    @media (min-width: #{$phablet}) and (max-width: #{$tablet - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$tablet}) and (max-width: #{$laptop - 1px}) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media (min-width: #{$laptop}) and (max-width: #{$desktop - 1px}) {
+        @content;
+    }
+}
