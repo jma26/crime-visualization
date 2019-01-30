@@ -6,3 +6,9 @@
     max-width: 1400px;
     margin: 32px auto;
 }
+
+@include breakpoint(phablet) {
+    .apexchart-xaxis-label, .apexchart-yaxis-title {
+        letter-spacing: 0.1rem;
+    }
+}

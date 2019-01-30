@@ -32,18 +32,27 @@ export default {
             'Robbery',
             'Aggravated Assault',
             'Rape'
-          ]
-        },
-        yaxis: {
-          title: {
-            text: '% Crime Occurring',
+          ],
+          labels: {
             style: {
-              cssClass: 'cityRisk-yaxis-title'
+              cssClass: 'apexchart-xaxis-label',
+              fontSize: '18px'
             }
           }
         },
+        yaxis: {
+          title: {
+            text: 'Likelihood of Crime Occurring in Percentages',
+            style: {
+              cssClass: 'apexchart-yaxis-title',
+              fontSize: '18px'
+            }
+          },
+          labels: {
+          }
+        },
         dataLabels: {
-          enabled: false
+          enabled: false,
         },
       },
 
