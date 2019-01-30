@@ -1,12 +1,18 @@
 .header__nav {
-    background-color: $background;
-    .header__nav-brand {
-        .header__nav-brand-logo {
-            height: 72px;
-        }
-    }
+    font-size: 18px;
+    background-image: linear-gradient(to bottom right, $background);
+}
+
+.header__nav-brand-logo {
+    height: 88px;
 }
 
 .header__list-item:hover {
     background-color: #FEBA45;
+}
+
+@include breakpoint(mobile) {
+    .header__nav-brand-logo {
+        height: 64px;
+    }
 }

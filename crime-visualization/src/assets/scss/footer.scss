@@ -1,5 +1,7 @@
 .footer__footer {
-    background-color: $background;
+    background-image: linear-gradient(to bottom right, $background);
+    color: #FFF;
+    font-size: 18px;
 }
 
 .footer__list {
