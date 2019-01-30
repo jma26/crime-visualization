@@ -63,3 +63,8 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import '../assets/scss/_bits.scss';
+@import '../assets/scss/dashboard.scss';
+</style>

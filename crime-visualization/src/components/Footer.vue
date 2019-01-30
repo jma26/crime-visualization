@@ -1,6 +1,6 @@
 <template>
   <div id="footer">
-    <div class="container">
+    <div class="footer__container">
       <footer class="footer__footer fixed-bottom">
         <ul class="footer__list">
           <li class="footer__list-item">
