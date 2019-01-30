@@ -1,5 +1,4 @@
 .header__nav {
-    font-size: 18px;
     background-image: linear-gradient(to bottom right, $background);
 }
 
@@ -11,8 +10,48 @@
     background-color: #FEBA45;
 }
 
+.dropdown-menu {
+    padding: 8px 16px;
+}
+
+.dropdown-item:hover {
+    color: #6335BC;
+    font-weight: 700;
+}
+
 @include breakpoint(mobile) {
     .header__nav-brand-logo {
         height: 64px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .dropdown-item {
+        background-color: #FFF;
+    }
+    .dropdown-item:hover {
+        background-color: #FFF;
+    }
+    .dropdown-item:active {
+        background-color: #FFF;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .dropdown-menu {
+        background-color: transparent;
+        border: none;
+        .dropdown-item {
+            color: #FFF;
+            display: inline-block;
+        }
+        .dropdown-item:hover {
+            color: #6335BC;
+            font-weight: 700;
+            background-color: transparent;
+        }
+        .dropdown-item:active {
+            background-color: transparent;
+        }
     }
 }

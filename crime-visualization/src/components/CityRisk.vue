@@ -1,7 +1,7 @@
 <template>
   <div id="cityrisk">
     <div class="cityrisk__chart-container">
-      <apexchart type="bar" height="900px" :options="chartOptions" :series="series"></apexchart>
+      <apexchart type="bar" height="850px" :options="chartOptions" :series="series"></apexchart>
     </div>
   </div>
 </template>
