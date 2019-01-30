@@ -35,7 +35,6 @@ BREAKPOINTS
    }
    @else if $point == mobile {
       @media (max-width: 37.5em)  { @content ; }
- 
    }
  }
  

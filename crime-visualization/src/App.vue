@@ -5,9 +5,13 @@
 </template>
 
 <script>
-import './App.scss';
 
 export default {
   name: 'app'
 }
 </script>
+
+<style lang="scss">
+@import './assets/scss/_bits.scss';
+@import './App.scss';
+</style>
