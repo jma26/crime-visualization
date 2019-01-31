@@ -1,6 +1,8 @@
 <template>
   <div id="burglary">
-    <apexchart type="bar" :options="chartOptions" :series="series"></apexchart>
+    <div class="apex__chart-container">
+      <apexchart type="bar" height="850px" :options="chartOptions" :series="series"></apexchart>
+    </div>
   </div>
 </template>
 
@@ -28,13 +30,26 @@ export default {
             '2015',
             '2016',
             '2017'
-          ]
+          ],
+          labels: {
+            style: {
+              cssClass: 'apexchart-xaxis-label',
+              fontSize: '16px'
+            }
+          }
         },
         yaxis: {
           title: {
             text: '% Crime Occurring',
             style: {
-              cssClass: 'burglary-yaxis-title'
+              cssClass: 'burglary-yaxis-title',
+              fontSize: '18px'
+            }
+          },
+          labels: {
+            style: {
+              cssClass: 'apexchart-yaxis-label',
+              fontSize: '18px'
             }
           }
         },
@@ -90,3 +105,8 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import '../../assets/scss/_bits.scss';
+@import '../../assets/scss/crimeindexes.scss';
+</style>

@@ -1,6 +1,6 @@
 <template>
   <div id="cityrisk">
-    <div class="cityrisk__chart-container">
+    <div class="apex__chart-container">
       <apexchart type="bar" height="850px" :options="chartOptions" :series="series"></apexchart>
     </div>
   </div>
@@ -42,13 +42,17 @@ export default {
         },
         yaxis: {
           title: {
-            text: 'Likelihood of Crime Occurring in Percentages',
+            text: 'Likelihood of Crime Occurring in Percentages (%)',
             style: {
               cssClass: 'apexchart-yaxis-title',
               fontSize: '18px'
             }
           },
           labels: {
+            style: {
+              cssClass: 'apexchart-yaxis-label',
+              fontSize: '18px'
+            }
           }
         },
         dataLabels: {

@@ -1,6 +1,8 @@
 <template>
   <div id="robbery">
-    <apexchart type="bar" :options="chartOptions" :series="series"></apexchart>
+    <div class="apex__chart-container">
+      <apexchart type="bar" height="850px" :options="chartOptions" :series="series"></apexchart>
+    </div>
   </div>
 </template>
 
@@ -28,13 +30,26 @@ props:['crimeData'],
             '2015',
             '2016',
             '2017'
-          ]
+          ],
+          labels: {
+            style: {
+              cssClass: 'robbery-xaxis-label',
+              fontSize: '16px'
+            }
+          }
         },
         yaxis: {
           title: {
             text: '% Likehood of Crime Occurring',
             style: {
-              cssClass: 'robbery-yaxis-title'
+              cssClass: 'robbery-yaxis-title',
+              fontSize: '18px'
+            }
+          },
+          labels: {
+            style: {
+              cssClass: 'robbery-yaxis-label',
+              fontSize: '18px'
             }
           }
         },
@@ -82,3 +97,8 @@ props:['crimeData'],
   }
 }
 </script>
+
+<style lang="scss">
+@import '../../assets/scss/_bits.scss';
+@import '../../assets/scss/crimeindexes.scss';
+</style>
